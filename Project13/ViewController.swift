@@ -106,6 +106,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true)
         currentImage = image
         
+        imageView.alpha = 0
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
+            self.imageView.alpha = 1
+        }, completion: nil)
+        
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
         
